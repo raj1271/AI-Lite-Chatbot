@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI-Lite Chatbot</title>
-    <!-- Tailwind CSS via CDN -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
-        // Tailwind configuration
+       
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -34,7 +34,6 @@
         }
     </script>
     <style type="text/tailwindcss">
-        /* Custom utility classes */
     @layer utilities {
       .typing-indicator {
         @apply inline-flex items-center bg-gray-700 px-4 py-2 rounded-full;
@@ -46,7 +45,6 @@
       .typing-dot:nth-child(2) { animation-delay: 0.2s; }
       .typing-dot:nth-child(3) { animation-delay: 0.4s; }
       
-      /* Scrollbar styling */
       .custom-scrollbar::-webkit-scrollbar {
         width: 6px;
       }
@@ -64,7 +62,7 @@
 </head>
 
 <body class="bg-gray-900 text-white flex flex-col h-screen">
-    <!-- Header -->
+    
     <header class="bg-gray-800 p-4 flex items-center justify-between">
         <div class="flex items-center">
             <i class="fas fa-robot text-blue-400 text-2xl mr-3"></i>
@@ -79,7 +77,6 @@
     </header>
 
     <div class="flex flex-1 overflow-hidden">
-        <!-- Sidebar -->
         <div class="w-64 bg-gray-800 p-4 flex flex-col hidden md:flex">
             <button id="new-chat"
                 class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded mb-4 flex items-center justify-center transition-colors">
@@ -92,7 +89,7 @@
                 </button>
             </div>
             <div id="chat-list" class="overflow-y-auto custom-scrollbar flex-1 space-y-2">
-                <!-- Chat history will be loaded here -->
+        
             </div>
         </div>
 
@@ -162,7 +159,7 @@
             const userInput = document.getElementById('user-input');
             const sendButton = document.getElementById('send-button');
 
-            // Send message on Enter key
+           
             userInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
@@ -170,12 +167,12 @@
                 }
             });
 
-            // Enable/disable send button based on input
+            
             userInput.addEventListener('input', function () {
                 sendButton.disabled = !this.value.trim();
             });
 
-            // Suggestion chips
+            
             document.querySelectorAll('.suggestion-chip').forEach(button => {
                 button.addEventListener('click', function () {
                     userInput.value = this.getAttribute('data-query');
@@ -184,24 +181,24 @@
                 });
             });
 
-            // Theme toggle
+            
             document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
-            // Clear history button
+           
             document.getElementById('clear-history').addEventListener('click', clearChatHistory);
         }
 
-        // Toggle between light and dark theme
+        
         function toggleTheme() {
             const body = document.body;
             const themeIcon = document.getElementById('theme-toggle').querySelector('i');
 
             if (body.classList.contains('bg-gray-900')) {
-                // Switch to light theme
+               
                 body.classList.remove('bg-gray-900', 'text-white');
                 body.classList.add('bg-gray-100', 'text-gray-900');
 
-                // Update UI elements for light theme
+               
                 document.querySelectorAll('.bg-gray-800').forEach(el => {
                     el.classList.remove('bg-gray-800');
                     el.classList.add('bg-gray-200');
@@ -223,11 +220,11 @@
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
             } else {
-                // Switch to dark theme
+               
                 body.classList.remove('bg-gray-100', 'text-gray-900');
                 body.classList.add('bg-gray-900', 'text-white');
 
-                // Update UI elements for dark theme
+               
                 document.querySelectorAll('.bg-gray-200').forEach(el => {
                     el.classList.remove('bg-gray-200');
                     el.classList.add('bg-gray-800');
@@ -251,7 +248,7 @@
             }
         }
 
-        // Load chat history from server
+       
         async function loadChatHistory() {
             try {
                 const response = await fetch('/chats');
@@ -264,7 +261,7 @@
             }
         }
 
-        // Display chat history in sidebar
+       
         function displayChatHistory(chats) {
             const chatList = document.getElementById('chat-list');
             chatList.innerHTML = '';
@@ -288,7 +285,7 @@
             });
         }
 
-        // Delete a chat
+       
         async function deleteChat(id) {
             if (confirm('Are you sure you want to delete this chat?')) {
                 try {
@@ -296,7 +293,7 @@
                     if (response.ok) {
                         loadChatHistory();
                         if (chatId === id) {
-                            // If we deleted the current chat, start a new one
+                            
                             document.getElementById('chatbox').innerHTML = `
                 <div class="animate-fade-in text-left">
                   <div class="inline-block px-4 py-3 rounded-xl bg-gray-800 max-w-xs md:max-w-md">
@@ -313,7 +310,7 @@
             }
         }
 
-        // Clear all chat history
+       
         async function clearChatHistory() {
             if (confirm('Are you sure you want to clear all chat history?')) {
                 try {
@@ -454,5 +451,6 @@
         };
     </script>
 </body>
+
 
 </html>
