@@ -7,13 +7,11 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Route: Home
 @app.route("/")
 def index():
     chats = list_chats()
     return render_template("index.html", chats=chats)
 
-# Route: Get chatbot response
 @app.route("/get", methods=["POST"])
 def chat():
     try:
@@ -35,7 +33,6 @@ def chat():
         print(f"Error in chat endpoint: {e}")
         return jsonify({"response": "Sorry, I encountered an error processing your request.", "chat_id": chat_id or ""})
 
-# Route: Load old chat
 @app.route("/chat/<chat_id>")
 def load_old_chat(chat_id):
     try:
@@ -45,7 +42,6 @@ def load_old_chat(chat_id):
         print(f"Error loading chat {chat_id}: {e}")
         return jsonify([])
 
-# Route: Get list of chats
 @app.route("/chats")
 def get_chats():
     try:
@@ -55,7 +51,7 @@ def get_chats():
         print(f"Error getting chats: {e}")
         return jsonify([])
 
-# Route: Delete a chat
+
 @app.route("/chat/<chat_id>", methods=["DELETE"])
 def delete_chat_route(chat_id):
     try:
@@ -65,7 +61,7 @@ def delete_chat_route(chat_id):
         print(f"Error deleting chat {chat_id}: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
-# Route: Clear all chats
+
 @app.route("/clear_chats", methods=["POST"])
 def clear_chats():
     try:
@@ -75,12 +71,10 @@ def clear_chats():
         print(f"Error clearing chats: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
-# Health check endpoint
 @app.route("/health")
 def health_check():
     return jsonify({"status": "healthy", "timestamp": datetime.now().isoformat()})
 
-# Error handlers
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({"error": "Endpoint not found"}), 404
@@ -96,4 +90,5 @@ if __name__ == "__main__":
     
     print("Starting AI-Lite Chatbot Server...")
     print("Open http://localhost:5000 in your browser")
+
     app.run(debug=True, host='0.0.0.0', port=5000)
