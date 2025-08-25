@@ -9,7 +9,6 @@ from dotenv import load_dotenv
 load_dotenv()
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
-# Check internet connectivity
 def check_internet():
     try:
         socket.create_connection(("api.openweathermap.org", 80), timeout=5)
@@ -17,21 +16,16 @@ def check_internet():
     except OSError:
         return False
 
-# Enhanced weather function with better error handling and city extraction
 def get_weather(city=None):
-    # Check if API key is configured
     if not API_KEY or API_KEY == "your_api_key_here":
         return "Weather service is not configured. Please check the API key setup."
     
-    # Check if city is provided
     if not city:
         return "Please specify a city. For example: 'weather in London'"
     
-    # Check internet connectivity
     if not check_internet():
         return "No internet connection. Cannot fetch weather data."
     
-    # Build request URL
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
     
     try:
@@ -69,11 +63,10 @@ def get_weather(city=None):
     except KeyError:
         return "Received unexpected response from weather service."
 
-# More comprehensive response function
 def get_response(user_input):
     user_input = user_input.lower().strip()
 
-    # Exit intent
+
     if re.search(r"\b(bye|exit|quit|goodbye|see you)\b", user_input):
         return random.choice([
             "Goodbye! Have a great day!",
@@ -82,7 +75,6 @@ def get_response(user_input):
             "Talk to you soon! 👋"
         ])
 
-    # Greetings
     if re.search(r"\b(hi|hello|hey|hola|greetings|howdy)\b", user_input):
         return random.choice([
             "Hi there! How can I help you today?",
@@ -91,17 +83,14 @@ def get_response(user_input):
             "Hi! I'm here to help. What do you need?"
         ])
 
-    # Time
     if re.search(r"\b(time|what.time|current.time)\b", user_input):
         now = datetime.datetime.now()
         return f"The current time is {now.strftime('%H:%M:%S')}"
 
-    # Date
     if re.search(r"\b(date|today|what.date|current.date)\b", user_input):
         now = datetime.datetime.now()
         return f"Today is {now.strftime('%A, %B %d, %Y')}"
 
-    # Weather with city extraction
     weather_match = re.search(r"\bweather\b.*\bin\b\s+([a-zA-Z\s]+)?|\bweather\b\s+in\s+([a-zA-Z\s]+)|([a-zA-Z\s]+)\s+\bweather\b", user_input)
     if weather_match:
         city = weather_match.group(1) or weather_match.group(2) or weather_match.group(3)
@@ -110,7 +99,6 @@ def get_response(user_input):
         else:
             return "Which city would you like the weather for?"
 
-    # How are you
     if re.search(r"\b(how.are.you|how.do.you.do|how's.it.going)\b", user_input):
         return random.choice([
             "I'm doing great, thanks for asking! How can I help you?",
@@ -119,7 +107,6 @@ def get_response(user_input):
             "I'm good! Ready to help you with anything you need."
         ])
 
-    # Thanks
     if re.search(r"\b(thanks|thank.you|appreciate.it|cheers)\b", user_input):
         return random.choice([
             "You're welcome! 😊",
@@ -128,7 +115,6 @@ def get_response(user_input):
             "Glad I could assist you!"
         ])
 
-    # FAQ examples
     if re.search(r"\b(your.name|who.are.you|what's.your.name)\b", user_input):
         return "I'm AI-Lite, your helpful chatbot assistant! 🤖"
 
@@ -143,7 +129,6 @@ def get_response(user_input):
                 "- Having a friendly conversation \n\n"
                 "Just ask me anything!")
 
-    # Jokes
     if re.search(r"\b(tell.a.joke|make.me.laugh|joke)\b", user_input):
         jokes = [
             "Why don't scientists trust atoms? Because they make up everything!",
@@ -154,7 +139,6 @@ def get_response(user_input):
         ]
         return random.choice(jokes)
 
-    # Fallback with more varied responses
     fallback_responses = [
         "I'm not sure I understand. Could you rephrase that?",
         "That's an interesting question. I'm still learning though!",
@@ -164,7 +148,6 @@ def get_response(user_input):
     ]
     return random.choice(fallback_responses)
 
-# For testing the chatbot directly
 if __name__ == "__main__":
     print("AI-Lite Chatbot (Console Mode)")
     print("Type 'exit' to quit\n")
@@ -178,3 +161,4 @@ if __name__ == "__main__":
         response = get_response(user_input)
 
         print(f"Bot: {response}\n")
+
