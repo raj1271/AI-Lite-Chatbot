@@ -4,7 +4,7 @@ from datetime import datetime
 
 HISTORY_DIR = "history"
 
-# Ensure history directory exists
+
 if not os.path.exists(HISTORY_DIR):
     os.makedirs(HISTORY_DIR)
 
@@ -52,7 +52,7 @@ def list_chats():
                             "message_count": len(data)
                         })
         
-        # Sort by most recent
+       
         chats.sort(key=lambda x: x["last_message"], reverse=True)
         return [chat["id"] for chat in chats]
     except Exception as e:
@@ -110,4 +110,5 @@ def get_chat_info(chat_id):
         return None
     except Exception as e:
         print(f"Error getting chat info {chat_id}: {e}")
+
         return None
