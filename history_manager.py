@@ -9,7 +9,6 @@ if not os.path.exists(HISTORY_DIR):
     os.makedirs(HISTORY_DIR)
 
 def save_chat(chat_id, user_input, bot_response):
-    """Save a chat message to history"""
     filepath = os.path.join(HISTORY_DIR, f"{chat_id}.json")
     timestamp = datetime.now().isoformat()
 
@@ -35,7 +34,6 @@ def save_chat(chat_id, user_input, bot_response):
         return False
 
 def list_chats():
-    """Get list of all chat sessions"""
     chats = []
     try:
         for f in os.listdir(HISTORY_DIR):
@@ -52,7 +50,7 @@ def list_chats():
                             "message_count": len(data)
                         })
         
-       
+        
         chats.sort(key=lambda x: x["last_message"], reverse=True)
         return [chat["id"] for chat in chats]
     except Exception as e:
@@ -60,7 +58,6 @@ def list_chats():
         return []
 
 def load_chat(chat_id):
-    """Load a specific chat session"""
     filepath = os.path.join(HISTORY_DIR, f"{chat_id}.json")
     try:
         if os.path.exists(filepath):
@@ -72,7 +69,6 @@ def load_chat(chat_id):
         return []
 
 def delete_chat(chat_id):
-    """Delete a specific chat session"""
     filepath = os.path.join(HISTORY_DIR, f"{chat_id}.json")
     try:
         if os.path.exists(filepath):
@@ -84,7 +80,6 @@ def delete_chat(chat_id):
         return False
 
 def clear_all_chats():
-    """Clear all chat history"""
     try:
         for filename in os.listdir(HISTORY_DIR):
             if filename.endswith(".json"):
@@ -96,7 +91,6 @@ def clear_all_chats():
         return False
 
 def get_chat_info(chat_id):
-    """Get information about a specific chat"""
     filepath = os.path.join(HISTORY_DIR, f"{chat_id}.json")
     try:
         if os.path.exists(filepath):
@@ -110,5 +104,4 @@ def get_chat_info(chat_id):
         return None
     except Exception as e:
         print(f"Error getting chat info {chat_id}: {e}")
-
         return None
