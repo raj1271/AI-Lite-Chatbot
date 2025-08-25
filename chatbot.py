@@ -2,9 +2,12 @@ import re
 import random
 import datetime
 import requests
+import os
 import socket
+from dotenv import load_dotenv
 
-API_KEY = "b1eaaf7bdd09368580f2aaaae84e61e5"
+load_dotenv()
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 # Check internet connectivity
 def check_internet():
@@ -173,4 +176,5 @@ if __name__ == "__main__":
             break
         
         response = get_response(user_input)
+
         print(f"Bot: {response}\n")
