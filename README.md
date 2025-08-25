@@ -96,14 +96,23 @@ A intelligent chatbot built with Python and Flask that can answer questions, pro
 ## 🏗️ Project Structure
 
 ai-lite-chatbot/
+
 ├── app.py                 # Main Flask application
+
 ├── chatbot.py            # Chatbot logic and response handling
+
 ├── history_manager.py    # Chat history management
+
 ├── requirements.txt      # Python dependencies
+
 ├── .env                  # Environment variables (not tracked)
+
 ├── .gitignore           # Git ignore rules
+
 ├── README.md            # Project documentation
+
 └── templates/
+
     └── index.html       # Main web interface template
    
    
