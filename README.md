@@ -69,11 +69,11 @@ A intelligent chatbot built with Python and Flask that can answer questions, pro
 - Ask Questions Like:
 - Greetings: "Hello", "Hi", "How are you?"
 
-- Time: "What time is it?", "Current time please"
+- Time: "What time is it?", "Current time please", "time"
 
-- Date: "What's the date today?", "What day is it?"
+- Date: "What's the date today?", "Date"
 
-- Weather: "What's the weather?", "Weather in London", "How's the weather in Paris?"
+- Weather: "Weather in London", "Mumbai Weather"
 
 - About: "Who made you?", "What can you do?", "What's your name?"
 
