@@ -20,21 +20,16 @@ An intelligent, lightweight chatbot built with **Python (Flask)** that can answe
 AI-Lite-Chatbot/
 │── app.py              
 # Flask server (routes, API endpoints)
-
 │── chatbot.py          
 # Chatbot logic & weather API integration
-
 │── history_manager.py  
 # JSON-based chat history management
-
 │── templates/
 
       └──index.html      
 # Frontend UI (Tailwind + JS)
-
 │── history/           
  # Saved chat sessions (auto-created)
-
 │── requirements.txt    
 # Dependencies  
 
