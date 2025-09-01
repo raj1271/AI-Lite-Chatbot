@@ -1,10 +1,9 @@
- 
-AI-Lite Chatbot  
+ AI-Lite Chatbot  
 
 An intelligent, lightweight chatbot built with Python (Flask) that can answer questions, provide weather updates, show time/date, crack jokes, and maintain chat history â€“ all inside a modern responsive UI powered by TailwindCSS.  
 
 ------------------------------------------------------------
-âœ¨ Features
+ Features
 ------------------------------------------------------------
 - Natural Conversations â€“ Regex-based intent recognition (greetings, time, date, weather, jokes).
 - Live Weather Updates â€“ Integrated with OpenWeatherMap API.
@@ -15,7 +14,7 @@ An intelligent, lightweight chatbot built with Python (Flask) that can answer qu
 - Error Handling â€“ Handles API errors, invalid inputs, and connectivity issues gracefully.  
 
 ------------------------------------------------------------
-ðŸ—ï¸ Project Structure
+ Project Structure
 ------------------------------------------------------------
 AI-Lite-Chatbot/
 â”‚â”€â”€ app.py              # Flask server (routes, API endpoints)
@@ -27,7 +26,7 @@ AI-Lite-Chatbot/
 â”‚â”€â”€ requirements.txt    # Dependencies  
 
 ------------------------------------------------------------
-ðŸš€ Getting Started
+ Getting Started
 ------------------------------------------------------------
 Prerequisites:
 - Python 3.8+
@@ -55,7 +54,7 @@ Run the Application:
 Then open: http://localhost:5000  
 
 ------------------------------------------------------------
-ðŸ› ï¸ Tech Stack
+ Tech Stack
 ------------------------------------------------------------
 - Backend: Python, Flask
 - Frontend: HTML, TailwindCSS, JavaScript
@@ -63,12 +62,12 @@ Then open: http://localhost:5000
 - API: OpenWeatherMap  
 
 ------------------------------------------------------------
-ðŸ™Œ Author
+ Author
 ------------------------------------------------------------
 Developed by Raj Pawar (https://github.com/raj1271) ðŸš€  
 
 ------------------------------------------------------------
-â­ Future Improvements
+ Future Improvements
 ------------------------------------------------------------
 - Add FastAPI version for better performance.
 - Integrate SQLAlchemy / DB support instead of JSON.
