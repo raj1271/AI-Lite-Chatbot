@@ -1,4 +1,6 @@
- AI-Lite Chatbot  
+------------------------------------------------------------
+AI-Lite Chatbot  
+------------------------------------------------------------
 
 An intelligent, lightweight chatbot built with Python (Flask) that can answer questions, provide weather updates, show time/date, crack jokes, and maintain chat history â€“ all inside a modern responsive UI powered by TailwindCSS.  
 
