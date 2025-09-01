@@ -18,18 +18,25 @@ An intelligent, lightweight chatbot built with **Python (Flask)** that can answe
 ## 🏗️ Project Structure
 
 AI-Lite-Chatbot/
-│── app.py              # Flask server (routes, API endpoints)
+│── app.py              
+# Flask server (routes, API endpoints)
 
-│── chatbot.py          # Chatbot logic & weather API integration
+│── chatbot.py          
+# Chatbot logic & weather API integration
 
-│── history_manager.py  # JSON-based chat history management
+│── history_manager.py  
+# JSON-based chat history management
 
 │── templates/
-      └──index.html      # Frontend UI (Tailwind + JS)
 
-│── history/            # Saved chat sessions (auto-created)
+      └──index.html      
+# Frontend UI (Tailwind + JS)
 
-│── requirements.txt    # Dependencies  
+│── history/           
+ # Saved chat sessions (auto-created)
+
+│── requirements.txt    
+# Dependencies  
 
 ------------------------------------------------------------
  Getting Started
@@ -70,7 +77,7 @@ Then open: http://localhost:5000
 ------------------------------------------------------------
  Author
 ------------------------------------------------------------
-Developed by Raj Pawar (https://github.com/raj1271) ðŸš€  
+Developed by Raj Pawar (https://github.com/raj1271) 
 
 ------------------------------------------------------------
  Future Improvements
